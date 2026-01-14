@@ -2,7 +2,7 @@
   "name": "mindhive-capture",
   "version": "1.0.0",
   "description": "Quick capture desktop app for Mindhive",
-  "main": "dist/main/main.js",
+  "main": "dist/main/main/main.js",
   "scripts": {
     "dev": "concurrently \"npm run watch:main\" \"npm run watch:renderer\" \"npm run start:electron\"",
     "watch:main": "tsc -p tsconfig.main.json --watch",

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindhive Capture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <h1>Mindhive Capture</h1>
+      <button id="close-btn" class="icon-btn" title="Hide window (Esc)">×</button>
+    </div>
+
+    <div id="config-screen" class="screen">
+      <div class="config-form">
+        <h2>Setup Required</h2>
+        <p>Configure your Mindhive API connection:</p>
+
+        <label for="api-endpoint">API Endpoint:</label>
+        <input
+          type="text"
+          id="api-endpoint"
+          placeholder="https://your-mindhive.com"
+          value="http://localhost:3000"
+        />
+
+        <label for="api-key">API Key (or AUTH_TOKEN):</label>
+        <input
+          type="password"
+          id="api-key"
+          placeholder="Your auth token or CAPTURE_API_KEY"
+        />
+
+        <button id="save-config-btn" class="primary-btn">Save & Start</button>
+      </div>
+    </div>
+
+    <div id="capture-screen" class="screen hidden">
+      <div class="drop-zone" id="drop-zone">
+        <textarea
+          id="capture-input"
+          placeholder="Type your thought, paste an image, or drop files here...&#10;&#10;Cmd/Ctrl+Enter to capture"
+          autofocus
+        ></textarea>
+
+        <div id="attachment-preview" class="attachment-preview hidden">
+          <img id="preview-image" src="" alt="Preview" />
+          <button id="remove-attachment" class="icon-btn">×</button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="status">
+          <span id="status-indicator" class="status-indicator">●</span>
+          <span id="status-text">Ready</span>
+        </div>
+        <button id="capture-btn" class="primary-btn">Capture</button>
+      </div>
+
+      <div id="queue-info" class="queue-info hidden">
+        <span id="queue-count">0</span> pending captures
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

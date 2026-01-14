@@ -39,7 +39,11 @@
     }
   },
   "keywords": ["mindhive", "capture", "notes"],
-  "author": "",
+  "author": {
+    "name": "Quant Fiction",
+    "email": "quantfiction1@protonmail.com"
+  },
+  "homepage": "https://github.com/quantfiction/mindhive-capture",
   "license": "MIT",
   "dependencies": {
     "electron-store": "^8.1.0"

@@ -8,7 +8,7 @@
     "watch:main": "tsc -p tsconfig.main.json --watch",
     "watch:renderer": "tsc -p tsconfig.renderer.json --watch",
     "start:electron": "electron .",
-    "copy:assets": "cp src/renderer/index.html dist/renderer/ && cp src/renderer/styles.css dist/renderer/",
+    "copy:assets": "mkdir -p dist/main/renderer && cp src/renderer/index.html dist/main/renderer/ && cp src/renderer/styles.css dist/main/renderer/ && cp dist/renderer/renderer/renderer.js dist/main/renderer/",
     "build": "npm run build:main && npm run build:renderer && npm run copy:assets",
     "build:main": "tsc -p tsconfig.main.json",
     "build:renderer": "tsc -p tsconfig.renderer.json",

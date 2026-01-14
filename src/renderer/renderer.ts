@@ -25,6 +25,9 @@ class CaptureApp {
   }
 
   async init() {
+    console.log('CaptureApp initializing...');
+    console.log('window.electron available?', !!window.electron);
+
     await this.loadConfig();
     this.setupEventListeners();
     this.loadQueue();
@@ -110,17 +113,28 @@ class CaptureApp {
   }
 
   async saveConfig() {
+    console.log('saveConfig called');
     const endpoint = (document.getElementById('api-endpoint') as HTMLInputElement).value.trim();
     const apiKey = (document.getElementById('api-key') as HTMLInputElement).value.trim();
+
+    console.log('Endpoint:', endpoint, 'API Key length:', apiKey.length);
 
     if (!endpoint || !apiKey) {
       alert('Please fill in all fields');
       return;
     }
 
+    if (!window.electron) {
+      console.error('window.electron is not available!');
+      alert('App initialization error - check console');
+      return;
+    }
+
+    console.log('Saving config...');
     this.config = { apiEndpoint: endpoint, apiKey };
     await window.electron.saveConfig(this.config);
 
+    console.log('Config saved, showing capture screen');
     this.showCaptureScreen();
     this.checkOnlineStatus();
   }

@@ -13,7 +13,44 @@ A lightweight cross-platform desktop app for quickly capturing thoughts, images,
 - **Image Support**: Paste from clipboard or drag-and-drop
 - **Clean & Fast**: Minimal UI, optimized for speed
 
-## Installation
+## Quick Install (Recommended)
+
+**One-liner install:**
+```bash
+curl -sSL https://raw.githubusercontent.com/quantfiction/mindhive-capture/main/install.sh | bash
+```
+
+Or clone and run:
+```bash
+git clone https://github.com/quantfiction/mindhive-capture.git
+cd mindhive-capture
+./install.sh
+```
+
+This will:
+- Install dependencies
+- Build and package the app for your platform
+- Tell you where to find the installer
+
+### API Key Setup
+
+You'll need your Mindhive API key when you first launch the app.
+
+**Find your key:**
+```bash
+grep CAPTURE_API_KEY /path/to/mindhive/.env
+```
+
+If you don't have one, generate it:
+```bash
+echo "CAPTURE_API_KEY=$(openssl rand -hex 32)" >> /path/to/mindhive/.env
+```
+
+Then restart your Mindhive services to load the new key.
+
+---
+
+## Manual Installation
 
 ### Prerequisites
 
@@ -25,7 +62,8 @@ A lightweight cross-platform desktop app for quickly capturing thoughts, images,
 
 1. **Clone and install:**
    ```bash
-   cd /home/ubuntu/repositories/mindhive-capture
+   git clone https://github.com/quantfiction/mindhive-capture.git
+   cd mindhive-capture
    npm install
    ```
 
